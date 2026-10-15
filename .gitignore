@@ -17,3 +17,11 @@ lane-finding/results/*.mp4
 
 # Generated calibration data
 lane-finding/results/*.npz
+
+# Ignore generated corner detection images
+lane-finding/results/calibration/*_corners.jpg
+
+# Keep the selected calibration examples
+!lane-finding/results/calibration/calibration2_corners.jpg
+!lane-finding/results/calibration/calibration10_corners.jpg
+!lane-finding/results/calibration/calibration20_corners.jpg
