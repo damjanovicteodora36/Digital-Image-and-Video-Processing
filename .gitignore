@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# VS Code
+.vscode/
+
+# Temporary files
+*.tmp
+*.log
+
+# Generated video outputs
+lane-finding/results/*.mp4
+
+# Generated calibration data
+lane-finding/results/*.npz
