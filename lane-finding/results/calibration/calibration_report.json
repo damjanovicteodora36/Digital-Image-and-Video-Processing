@@ -1,0 +1,137 @@
+{
+  "image_size": [
+    1280,
+    720
+  ],
+  "pattern_size": [
+    9,
+    6
+  ],
+  "used_images": [
+    "calibration2.jpg",
+    "calibration3.jpg",
+    "calibration6.jpg",
+    "calibration8.jpg",
+    "calibration9.jpg",
+    "calibration10.jpg",
+    "calibration11.jpg",
+    "calibration12.jpg",
+    "calibration13.jpg",
+    "calibration14.jpg",
+    "calibration16.jpg",
+    "calibration17.jpg",
+    "calibration18.jpg",
+    "calibration19.jpg",
+    "calibration20.jpg"
+  ],
+  "excluded_resolution": [
+    "calibration7.jpg",
+    "calibration15.jpg"
+  ],
+  "camera_matrix": [
+    [
+      1158.7747539393504,
+      0.0,
+      669.642741295532
+    ],
+    [
+      0.0,
+      1154.0766073865234,
+      388.0794504069446
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "distortion_coefficients": [
+    [
+      -0.2567790821743934,
+      0.043384515888101695,
+      -0.0006874544870819351,
+      0.00012576902232175644,
+      -0.11502545693507232
+    ]
+  ],
+  "rms_pixels": 0.8528795005003417,
+  "mean_error_pixels": 0.6911839683850606,
+  "per_image": [
+    {
+      "image": "calibration2.jpg",
+      "mean_pixels": 1.087420105934143,
+      "rms_pixels": 1.2414789199829102
+    },
+    {
+      "image": "calibration3.jpg",
+      "mean_pixels": 0.9937878847122192,
+      "rms_pixels": 1.1524848937988281
+    },
+    {
+      "image": "calibration6.jpg",
+      "mean_pixels": 0.18367326259613037,
+      "rms_pixels": 0.19909468293190002
+    },
+    {
+      "image": "calibration8.jpg",
+      "mean_pixels": 0.5582632422447205,
+      "rms_pixels": 0.6502074003219604
+    },
+    {
+      "image": "calibration9.jpg",
+      "mean_pixels": 0.5151041746139526,
+      "rms_pixels": 0.6100016236305237
+    },
+    {
+      "image": "calibration10.jpg",
+      "mean_pixels": 0.42743417620658875,
+      "rms_pixels": 0.50827956199646
+    },
+    {
+      "image": "calibration11.jpg",
+      "mean_pixels": 0.610630452632904,
+      "rms_pixels": 0.7109621167182922
+    },
+    {
+      "image": "calibration12.jpg",
+      "mean_pixels": 0.6971414089202881,
+      "rms_pixels": 0.7737479209899902
+    },
+    {
+      "image": "calibration13.jpg",
+      "mean_pixels": 1.0079706907272339,
+      "rms_pixels": 1.1710952520370483
+    },
+    {
+      "image": "calibration14.jpg",
+      "mean_pixels": 0.8945842981338501,
+      "rms_pixels": 1.043723225593567
+    },
+    {
+      "image": "calibration16.jpg",
+      "mean_pixels": 0.9165369868278503,
+      "rms_pixels": 1.076721429824829
+    },
+    {
+      "image": "calibration17.jpg",
+      "mean_pixels": 0.6264107823371887,
+      "rms_pixels": 0.7478514313697815
+    },
+    {
+      "image": "calibration18.jpg",
+      "mean_pixels": 0.4034452736377716,
+      "rms_pixels": 0.45350125432014465
+    },
+    {
+      "image": "calibration19.jpg",
+      "mean_pixels": 0.7203919291496277,
+      "rms_pixels": 0.8679273724555969
+    },
+    {
+      "image": "calibration20.jpg",
+      "mean_pixels": 0.7249648571014404,
+      "rms_pixels": 0.8403387069702148
+    }
+  ],
+  "resolution_policy": "Use only the most common resolution; no assumed resize/crop mapping."
+}
