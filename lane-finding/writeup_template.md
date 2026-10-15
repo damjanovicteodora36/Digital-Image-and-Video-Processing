@@ -39,13 +39,52 @@ You're reading it!
 
 #### 1. Briefly state how you computed the camera matrix and distortion coefficients. Provide an example of a distortion corrected calibration image.
 
-TODO: Add your text here!!!
+Camera calibration was performed using chessboard images from the `camera_cal/` directory. The implementation is available in [`src/camera_calibration.py`](./src/camera_calibration.py).
+
+First, 20 calibration images were converted to grayscale, and the internal chessboard corners were detected using `cv2.findChessboardCorners()` with a pattern size of 9 × 6 corners. The detection was successful in 17 images. The detected corner positions were further refined using `cv2.cornerSubPix()`.
+
+For calibration, corresponding 3D object points were generated assuming a flat chessboard (Z = 0), while the detected corner positions represented the 2D image points. Two images were excluded because their resolution differed from the others. Therefore, 15 images with a resolution of 1280 × 720 pixels were used with `cv2.calibrateCamera()` to estimate the camera matrix and distortion coefficients.
+
+The resulting camera matrix was:
+
+```text
+[[1158.77475,    0.00000, 669.64274],
+ [   0.00000, 1154.07661, 388.07945],
+ [   0.00000,    0.00000,   1.00000]]
+```
+
+The distortion coefficients `(k1, k2, p1, p2, k3)` were:
+
+```text
+[-0.25677908, 0.04338452, -0.00068745,
+  0.00012577, -0.11502546]
+```
+
+The calibration produced a mean reprojection error of 0.691 pixels and an RMS error of 0.853 pixels, indicating a reasonably good fit between the detected and projected chessboard corners.
+
+The calculated parameters were saved in `results/calibration/camera_parameters.npz` for use in subsequent processing steps.
+
+Finally, `cv2.undistort()` was applied to correct the lens distortion. The following comparison shows the original calibration image on the left and the distortion-corrected image on the right.
+
+![Original and distortion-corrected calibration image](./results/calibration/calibration2_comparison.jpg)
+
+The correction visibly reduces the distortion of the chessboard lines, particularly near the edges of the image. The same parameters were also tested on a road image (`test1.jpg`) to confirm that distortion correction can be applied to the input images used in the lane detection pipeline.
+
+Although the results are visually satisfactory, the reprojection errors were measured on the images used for calibration and do not independently validate the model on unseen images.
 
 ### Pipeline (single images)
 
 #### 1. Provide an example of a distortion-corrected image.
 
-TODO: Add your text here!!!
+The camera matrix and distortion coefficients calculated during the calibration stage were used to correct lens distortion in road images using `cv2.undistort()`.
+
+The parameters were loaded from `results/calibration/camera_parameters.npz`, allowing distortion correction without repeating the calibration process. The implementation is provided in the `save_undistortion_comparison()` function in [`src/camera_calibration.py`](./src/camera_calibration.py).
+
+The following figure shows the original `test1.jpg` image on the left and the distortion-corrected image on the right.
+
+![Original and distortion-corrected road image](./results/calibration/test1_comparison.jpg)
+
+The correction introduces subtle geometric changes, particularly near the edges of the image, while preserving the natural shape of the road and lane markings. The corrected image can be used as input for the subsequent lane detection steps.
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
