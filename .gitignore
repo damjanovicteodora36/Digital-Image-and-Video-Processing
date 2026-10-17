@@ -27,6 +27,7 @@ lane-finding/results/calibration/*_corners.jpg
 !lane-finding/results/calibration/calibration20_corners.jpg
 
 # Generated thresholding results
+lane-finding/results/thresholding/thresholding_report.json
 lane-finding/results/thresholding/**/*.png
 lane-finding/results/thresholding/**/*.npz
 lane-finding/results/thresholding/roi_experiments/
