@@ -33,3 +33,11 @@ lane-finding/results/thresholding/**/*.npz
 lane-finding/results/thresholding/roi_experiments/
 lane-finding/results/thresholding/*_comparison.jpg
 lane-finding/results/thresholding/*_undistorted.jpg
+
+# Generated perspective transform outputs
+lane-finding/results/perspective_transform/experiments/
+lane-finding/results/perspective_transform/*_binary_*.png
+lane-finding/results/perspective_transform/*_masks.npz
+lane-finding/results/perspective_transform/*_destination_points.jpg
+lane-finding/results/perspective_transform/*_source_points.jpg
+lane-finding/results/perspective_transform/*_inspection.jpg
