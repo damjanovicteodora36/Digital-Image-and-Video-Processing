@@ -1,0 +1,290 @@
+{
+  "total": 17,
+  "processed": 17,
+  "failed": 0,
+  "parameters": {
+    "white_lightness": [
+      200,
+      255
+    ],
+    "yellow_hue": [
+      15,
+      40
+    ],
+    "yellow_saturation": [
+      100,
+      255
+    ],
+    "yellow_lightness": [
+      40,
+      255
+    ],
+    "sobel_threshold": [
+      40,
+      100
+    ],
+    "sobel_kernel": 3
+  },
+  "roi_vertices": [
+    [
+      0.0,
+      1.0
+    ],
+    [
+      0.38,
+      0.58
+    ],
+    [
+      0.68,
+      0.58
+    ],
+    [
+      1.0,
+      1.0
+    ]
+  ],
+  "combination": "(HLS OR Sobel X) AND ROI",
+  "records": [
+    {
+      "image": "challange00101.jpg",
+      "status": "processed",
+      "image_size": [
+        960,
+        540
+      ],
+      "distortion_correction_applied": false,
+      "correction_note": "Not applied: same-camera resize/crop mapping is unconfirmed",
+      "outputs": [
+        "challange00101_binary.png",
+        "challange00101_binary.npz"
+      ]
+    },
+    {
+      "image": "challange00111.jpg",
+      "status": "processed",
+      "image_size": [
+        960,
+        540
+      ],
+      "distortion_correction_applied": false,
+      "correction_note": "Not applied: same-camera resize/crop mapping is unconfirmed",
+      "outputs": [
+        "challange00111_binary.png",
+        "challange00111_binary.npz"
+      ]
+    },
+    {
+      "image": "challange00136.jpg",
+      "status": "processed",
+      "image_size": [
+        960,
+        540
+      ],
+      "distortion_correction_applied": false,
+      "correction_note": "Not applied: same-camera resize/crop mapping is unconfirmed",
+      "outputs": [
+        "challange00136_binary.png",
+        "challange00136_binary.npz"
+      ]
+    },
+    {
+      "image": "solidWhiteCurve.jpg",
+      "status": "processed",
+      "image_size": [
+        960,
+        540
+      ],
+      "distortion_correction_applied": false,
+      "correction_note": "Not applied: same-camera resize/crop mapping is unconfirmed",
+      "outputs": [
+        "solidWhiteCurve_binary.png",
+        "solidWhiteCurve_binary.npz"
+      ]
+    },
+    {
+      "image": "solidWhiteRight.jpg",
+      "status": "processed",
+      "image_size": [
+        960,
+        540
+      ],
+      "distortion_correction_applied": false,
+      "correction_note": "Not applied: same-camera resize/crop mapping is unconfirmed",
+      "outputs": [
+        "solidWhiteRight_binary.png",
+        "solidWhiteRight_binary.npz"
+      ]
+    },
+    {
+      "image": "solidYellowCurve.jpg",
+      "status": "processed",
+      "image_size": [
+        960,
+        540
+      ],
+      "distortion_correction_applied": false,
+      "correction_note": "Not applied: same-camera resize/crop mapping is unconfirmed",
+      "outputs": [
+        "solidYellowCurve_binary.png",
+        "solidYellowCurve_binary.npz"
+      ]
+    },
+    {
+      "image": "solidYellowCurve2.jpg",
+      "status": "processed",
+      "image_size": [
+        960,
+        540
+      ],
+      "distortion_correction_applied": false,
+      "correction_note": "Not applied: same-camera resize/crop mapping is unconfirmed",
+      "outputs": [
+        "solidYellowCurve2_binary.png",
+        "solidYellowCurve2_binary.npz"
+      ]
+    },
+    {
+      "image": "solidYellowLeft.jpg",
+      "status": "processed",
+      "image_size": [
+        960,
+        540
+      ],
+      "distortion_correction_applied": false,
+      "correction_note": "Not applied: same-camera resize/crop mapping is unconfirmed",
+      "outputs": [
+        "solidYellowLeft_binary.png",
+        "solidYellowLeft_binary.npz"
+      ]
+    },
+    {
+      "image": "straight_lines1.jpg",
+      "status": "processed",
+      "image_size": [
+        1280,
+        720
+      ],
+      "distortion_correction_applied": true,
+      "correction_note": "Saved calibration applied",
+      "outputs": [
+        "straight_lines1_binary.png",
+        "straight_lines1_binary.npz",
+        "straight_lines1_comparison.jpg"
+      ]
+    },
+    {
+      "image": "straight_lines2.jpg",
+      "status": "processed",
+      "image_size": [
+        1280,
+        720
+      ],
+      "distortion_correction_applied": true,
+      "correction_note": "Saved calibration applied",
+      "outputs": [
+        "straight_lines2_binary.png",
+        "straight_lines2_binary.npz"
+      ]
+    },
+    {
+      "image": "test1.jpg",
+      "status": "processed",
+      "image_size": [
+        1280,
+        720
+      ],
+      "distortion_correction_applied": true,
+      "correction_note": "Saved calibration applied",
+      "outputs": [
+        "test1_binary.png",
+        "test1_binary.npz",
+        "test1_comparison.jpg"
+      ]
+    },
+    {
+      "image": "test2.jpg",
+      "status": "processed",
+      "image_size": [
+        1280,
+        720
+      ],
+      "distortion_correction_applied": true,
+      "correction_note": "Saved calibration applied",
+      "outputs": [
+        "test2_binary.png",
+        "test2_binary.npz"
+      ]
+    },
+    {
+      "image": "test3.jpg",
+      "status": "processed",
+      "image_size": [
+        1280,
+        720
+      ],
+      "distortion_correction_applied": true,
+      "correction_note": "Saved calibration applied",
+      "outputs": [
+        "test3_binary.png",
+        "test3_binary.npz",
+        "test3_comparison.jpg"
+      ]
+    },
+    {
+      "image": "test4.jpg",
+      "status": "processed",
+      "image_size": [
+        1280,
+        720
+      ],
+      "distortion_correction_applied": true,
+      "correction_note": "Saved calibration applied",
+      "outputs": [
+        "test4_binary.png",
+        "test4_binary.npz"
+      ]
+    },
+    {
+      "image": "test5.jpg",
+      "status": "processed",
+      "image_size": [
+        1280,
+        720
+      ],
+      "distortion_correction_applied": true,
+      "correction_note": "Saved calibration applied",
+      "outputs": [
+        "test5_binary.png",
+        "test5_binary.npz"
+      ]
+    },
+    {
+      "image": "test6.jpg",
+      "status": "processed",
+      "image_size": [
+        1280,
+        720
+      ],
+      "distortion_correction_applied": true,
+      "correction_note": "Saved calibration applied",
+      "outputs": [
+        "test6_binary.png",
+        "test6_binary.npz"
+      ]
+    },
+    {
+      "image": "whiteCarLaneSwitch.jpg",
+      "status": "processed",
+      "image_size": [
+        960,
+        540
+      ],
+      "distortion_correction_applied": false,
+      "correction_note": "Not applied: same-camera resize/crop mapping is unconfirmed",
+      "outputs": [
+        "whiteCarLaneSwitch_binary.png",
+        "whiteCarLaneSwitch_binary.npz"
+      ]
+    }
+  ]
+}

@@ -88,7 +88,23 @@ The correction introduces subtle geometric changes, particularly near the edges 
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
-TODO: Add your text here!!!
+To identify potential lane markings, a combination of color thresholding and gradient-based edge detection was implemented in [`src/thresholding.py`](./src/thresholding.py).
+
+First, the input image was converted from BGR to the HLS color space. White lane markings were selected using a lightness threshold of 200–255, while yellow markings were detected using hue values of 15–40, saturation values of 100–255, and lightness values of 40–255.
+
+Additionally, the Sobel operator was applied in the X direction to the HLS lightness channel. Several gradient thresholds were compared, and the range **40–100**, with a kernel size of 3, was selected as a suitable compromise between detecting lane edges and reducing noise.
+
+The color and gradient masks were combined using a logical OR operation. A trapezoidal region of interest (ROI) was then applied to suppress irrelevant features outside the road area.
+
+The resulting binary image contains values of 0 and 1, where 1 represents a potential lane-marking pixel.
+
+The following figure presents the corrected input image, color mask, Sobel X mask, combined thresholding result, and ROI selection.
+
+![Color and gradient thresholding results](./results/thresholding/final/test3_comparison.jpg)
+
+The method was tested on all 17 provided road images. Distortion correction was applied to eight images matching the calibration resolution, while the remaining nine images were processed without correction because their relationship to the calibration camera could not be confirmed.
+
+The results show that the color thresholds successfully preserve prominent white and yellow lane markings, while the ROI substantially reduces unwanted detections from surrounding vegetation and other objects. Some noise remains within the road area, particularly around vehicles and road textures, and will need to be handled by subsequent lane detection stages.
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
