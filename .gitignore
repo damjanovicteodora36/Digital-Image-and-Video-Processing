@@ -25,3 +25,10 @@ lane-finding/results/calibration/*_corners.jpg
 !lane-finding/results/calibration/calibration2_corners.jpg
 !lane-finding/results/calibration/calibration10_corners.jpg
 !lane-finding/results/calibration/calibration20_corners.jpg
+
+# Generated thresholding results
+lane-finding/results/thresholding/**/*.png
+lane-finding/results/thresholding/**/*.npz
+lane-finding/results/thresholding/roi_experiments/
+lane-finding/results/thresholding/*_comparison.jpg
+lane-finding/results/thresholding/*_undistorted.jpg
