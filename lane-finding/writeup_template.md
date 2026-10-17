@@ -108,7 +108,20 @@ The results show that the color thresholds successfully preserve prominent white
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
-TODO: Add your text here!!!
+The perspective transform is implemented in [`src/perspective_transform.py`](./src/perspective_transform.py). After distortion correction and binary thresholding, four source points are mapped to a rectangle to obtain a bird's-eye view. The selected `paint_aligned` points were based on visible lane markings in the corrected `straight_lines1.jpg` and visually checked on `test1.jpg` and `test3.jpg`.
+
+For images of 1280 by 720 pixels, the coordinates are listed in top-left, top-right, bottom-right, bottom-left order:
+
+```text
+Source:      (540, 490), (748, 490), (1042, 680), (263, 680)
+Destination: (320,   0), (960,   0), ( 960, 719), (320, 719)
+```
+
+`cv2.getPerspectiveTransform()` computes the forward matrix `M` and reverse matrix `Minv`. The binary image is transformed using `cv2.warpPerspective()` with `cv2.INTER_NEAREST`, preserving its 0/1 values and 1280 by 720 dimensions. The matrices and coordinates are saved in `results/perspective_transform/perspective_parameters.npz`, with a readable report in `perspective_report.json`.
+
+The comparison below shows the corrected road image, the binary mask before transformation, the transformed mask with destination points, and the source-point selection. The lane boundaries appear approximately parallel in the bird's-eye view on the straight road section. This transformed binary mask will serve as input to the subsequent lane detection stage; the transform does not establish a physical distance scale.
+
+![Perspective transform with the selected paint_aligned points](./results/perspective_transform/straight_lines1_comparison.jpg)
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 

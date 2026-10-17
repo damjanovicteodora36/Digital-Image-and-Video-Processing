@@ -1,0 +1,104 @@
+{
+  "source_points": [
+    [
+      540,
+      490
+    ],
+    [
+      748,
+      490
+    ],
+    [
+      1042,
+      680
+    ],
+    [
+      263,
+      680
+    ]
+  ],
+  "destination_points": [
+    [
+      320,
+      0
+    ],
+    [
+      960,
+      0
+    ],
+    [
+      960,
+      719
+    ],
+    [
+      320,
+      719
+    ]
+  ],
+  "point_order": "TL, TR, BR, BL",
+  "M": [
+    [
+      -0.5060973071960712,
+      -1.4983143963041574,
+      954.8324801265242
+    ],
+    [
+      -4.3641780315399626e-16,
+      -2.3311316435676517,
+      1142.2545053481497
+    ],
+    [
+      -1.8906398281388948e-19,
+      -0.002376493111915761,
+      1.0
+    ]
+  ],
+  "Minv": [
+    [
+      0.32500000000000057,
+      -0.6533750162917046,
+      435.9999999999999
+    ],
+    [
+      3.0040201943265665e-16,
+      -0.4289762025063337,
+      490.0
+    ],
+    [
+      6.13065345780932e-19,
+      -0.0010194589904320831,
+      1.0
+    ]
+  ],
+  "candidate_basis": "Lane marking candidates inspected on undistorted straight_lines1, not ROI boundaries",
+  "status": "paint_aligned accepted after visual review; not a metric ground-plane calibration",
+  "records": [
+    {
+      "image": "straight_lines1.jpg",
+      "image_size": [
+        1280,
+        720
+      ],
+      "distortion_correction_applied": true,
+      "comparison": "straight_lines1_comparison.jpg"
+    },
+    {
+      "image": "test1.jpg",
+      "image_size": [
+        1280,
+        720
+      ],
+      "distortion_correction_applied": true,
+      "comparison": "test1_comparison.jpg"
+    },
+    {
+      "image": "test3.jpg",
+      "image_size": [
+        1280,
+        720
+      ],
+      "distortion_correction_applied": true,
+      "comparison": "test3_comparison.jpg"
+    }
+  ]
+}
