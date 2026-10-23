@@ -155,7 +155,76 @@ These results demonstrate that the method can identify lane-line pixels and appr
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-TODO: Add your text here!!!
+The radius of curvature and the vehicle's position relative to the lane center are calculated in [`src/lane_geometry.py`](./src/lane_geometry.py), using the `curvature_radius()` and `compute_lane_geometry()` functions.
+
+After identifying lane-line pixels and fitting a second-degree polynomial to each lane boundary, the polynomial coefficients are used to estimate the road curvature and the vehicle's lateral offset. Each lane boundary is represented by:
+
+$$
+x(y) = Ay^2 + By + C
+$$
+
+**Radius of Curvature**
+
+Since the lane coordinates are initially expressed in pixels, they are converted into meters using the following approximate scaling factors:
+
+- `ym_per_pix = 30 / 720` meters per pixel in the vertical direction.
+- `xm_per_pix = 3.7 / 640` meters per pixel in the horizontal direction.
+
+The polynomial coefficients are converted into metric coordinates before calculating the radius of curvature. The radius is calculated using:
+
+$$
+R(y) = \frac{\left(1 + (2Ay + B)^2\right)^{3/2}}{|2A|}
+$$
+
+Here, `A` and `B` represent the polynomial coefficients expressed in metric coordinates. The radius is evaluated at the bottom of the image (`y = height - 1`), corresponding to the road closest to the vehicle.
+
+A larger radius indicates a straighter road, while a smaller radius indicates a sharper curve. The radius is calculated independently for the left and right lane boundaries, provided that their polynomial fits are reliable.
+
+**Vehicle Position Relative to Lane Center**
+
+To estimate the vehicle's lateral position, the left and right polynomials are evaluated at the bottom of the image. The lane center is calculated as the midpoint between the two detected boundaries:
+
+$$
+x_{\text{lane center}} = \frac{x_{\text{left}} + x_{\text{right}}}{2}
+$$
+
+The camera is assumed to be mounted at the horizontal center of the vehicle, so its position is approximated by:
+
+$$
+x_{\text{vehicle}} = \frac{\text{image width}}{2}
+$$
+
+The lateral offset is then calculated as:
+
+$$
+\text{offset} = (x_{\text{vehicle}} - x_{\text{lane center}}) \cdot xm_{\text{per pix}}
+$$
+
+A positive offset indicates that the vehicle is positioned to the right of the lane center, while a negative offset indicates that it is positioned to the left.
+
+Before accepting the offset, the algorithm verifies that both lane boundaries have reliable polynomial fits, do not cross, and maintain a reasonable lane width. If either boundary is unreliable, the vehicle offset is not calculated.
+
+**Results**
+
+The method was evaluated on eight road images with a resolution of 1280 × 720 pixels. Using the improved sliding-window initialization, both lane boundaries passed the reliability and geometric checks in **seven out of eight images**.
+
+For example, the estimated results for `straight_lines1.jpg` were:
+
+- Left radius of curvature: approximately **28,735 m**.
+- Right radius of curvature: approximately **4,968 m**.
+- Estimated lane width at the bottom: **639.26 pixels**.
+- Vehicle offset: approximately **−0.005 m**, indicating a position very close to the lane center.
+
+For `test1.jpg`, the right lane boundary was considered unreliable because it did not have sufficient support across the sliding windows. Therefore, the algorithm did not calculate the lane center or vehicle offset.
+
+The calculated lane area is subsequently visualized in [`src/lane_overlay.py`](./src/lane_overlay.py). The fitted lane boundaries are transformed back to the undistorted camera perspective using the inverse perspective transformation matrix (`Minv`), and the detected lane area is displayed as a semi-transparent green overlay.
+
+The following image shows the detected lane area, estimated curvature values, and vehicle's lateral offset:
+
+![Detected lane boundaries and estimated vehicle position](./results/lane_overlay/straight_lines1_overlay.jpg)
+
+The calculated values are **approximate metric estimates rather than independently verified physical measurements**. The pixel-to-meter scaling factors are assumed rather than derived from measured road geometry, and the camera is assumed to be centered on the vehicle. Differences between the left and right curvature estimates may result from fitting uncertainty, incomplete lane markings, and the approximate perspective transformation.
+
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
