@@ -41,3 +41,7 @@ lane-finding/results/perspective_transform/*_masks.npz
 lane-finding/results/perspective_transform/*_destination_points.jpg
 lane-finding/results/perspective_transform/*_source_points.jpg
 lane-finding/results/perspective_transform/*_inspection.jpg
+
+# Intermediate lane detection data
+lane-finding/results/lane_detection/*_pixels.npz
+lane-finding/results/lane_detection/*_polynomial.npz
