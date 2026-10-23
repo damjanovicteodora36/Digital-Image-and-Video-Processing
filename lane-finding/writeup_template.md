@@ -125,7 +125,33 @@ The comparison below shows the corrected road image, the binary mask before tran
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
-TODO: Add your text here!!!
+Lane-line pixels were identified using a histogram-based sliding window search, implemented in [`src/lane_detection.py`](./src/lane_detection.py).
+
+First, a histogram was calculated by summing the active pixels in each column of the lower half of the perspective-transformed binary image. The histogram peaks were used to estimate the initial positions of the left and right lane boundaries. Separate horizontal search regions and minimum peak requirements were applied to reduce incorrect detections.
+
+Starting from these positions, the **Sliding Windows** algorithm searched for lane pixels from the bottom of the image upwards. The image was divided into **9 horizontal windows**, each with a horizontal margin of **80 pixels** around its center. When at least **50 pixels** were detected inside a window, its horizontal center was updated using the mean position of those pixels. The coordinates belonging to the left and right lane boundaries were collected separately.
+
+The following figures show the histogram with the detected starting positions and the sliding window search results:
+
+![Lane histogram and starting positions](./results/lane_detection/straight_lines1_histogram.png)
+
+![Sliding window lane pixel detection](./results/lane_detection/straight_lines1_windows.jpg)
+
+After collecting the lane pixels, a **second-degree polynomial** was fitted independently to each boundary using `np.polyfit()`:
+
+\[
+x(y) = ay^2 + by + c
+\]
+
+Before fitting, each boundary was checked for sufficient data, requiring at least **300 detected pixels**, **100 distinct image rows**, and **4 supported windows**. Additional checks were applied to the resulting polynomial, including residual error and geometric constraints.
+
+The fitted curves were evaluated across the image height. This allowed the algorithm to represent continuous lane boundaries as well as estimate their positions across gaps between detected lane markings.
+
+![Polynomial fitting results](./results/lane_detection/straight_lines1_polynomial.png)
+
+The method was tested on `straight_lines1.jpg`, `test1.jpg`, and `test3.jpg`. Both lane boundaries were accepted for `straight_lines1` and `test3`. However, the right boundary in `test1` was rejected because only three windows contained sufficient supporting pixels. In this case, the algorithm retained the reliable left boundary without generating an unsupported polynomial for the right boundary.
+
+These results demonstrate that the method can identify lane-line pixels and approximate their positions using quadratic polynomials, while detecting cases where the available information is insufficient for reliable fitting.
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
