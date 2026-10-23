@@ -69,7 +69,8 @@ def find_start_positions(binary, left_range=(0.12, 0.45), right_range=(0.55, 0.8
 
 
 def sliding_window_search(binary, nwindows=9, margin=80, minpix=50,
-                          min_lane_pixels=300, min_supported_windows=4, seed_parameters=None):
+                          min_lane_pixels=300, min_supported_windows=4, seed_parameters=None,
+                          enable_fallback=True):
     """Return separate pixel coordinates, windows, and heuristic diagnostics."""
     validate_binary(binary)
     if (not all(isinstance(v, int) and v > 0 for v in
@@ -117,9 +118,100 @@ def sliding_window_search(binary, nwindows=9, margin=80, minpix=50,
             reasons.append(f"{label}: fewer than {min_lane_pixels} selected pixels")
         if supported[side] < min_supported_windows:
             reasons.append(f"{label}: fewer than {min_supported_windows} windows with >= {minpix} pixels")
-    return dict(histogram=histogram, seeds=seeds, lanes=lanes, windows=windows,
+    result = dict(histogram=histogram, seeds=seeds, lanes=lanes, windows=windows,
                 passes_heuristics=not reasons, reasons=reasons,
                 note="Passing heuristics does not establish correct lane identity; inspect visualization")
+    result["initialization"] = [dict(method="primary" if s is not None else "none", x=s,
+        band=[height//2, height], start_window=0 if s is not None else None,
+        reason="Accepted lower-half histogram peak" if s is not None else "; ".join(reasons)) for s in seeds]
+    if enable_fallback and any(s is None for s in seeds):
+        _initialize_fallback(binary, result, nwindows, margin, minpix,
+                             min_lane_pixels, min_supported_windows, seed_parameters or {})
+    return result
+
+
+def _initialize_fallback(binary, result, nwindows, margin, minpix, min_lane_pixels,
+                         min_supported_windows, seed_parameters):
+    """Seed missing sides in supported bands and follow independently both ways."""
+    height, width = binary.shape
+    y, x = binary.nonzero()
+    ranges = [seed_parameters.get("left_range", (0.12, 0.45)),
+              seed_parameters.get("right_range", (0.55, 0.88))]
+    min_peak = seed_parameters.get("min_peak", 20)
+    ratio = seed_parameters.get("ambiguity_ratio", 0.85)
+    distance = seed_parameters.get("peak_distance", 60)
+    separation = seed_parameters.get("separation", (0.30, 0.70))
+    for side, label in enumerate(("left", "right")):
+        if result["seeds"][side] is not None:
+            continue
+        candidates = []
+        for level in range(nwindows):
+            top, bottom = height-(level+1)*height//nwindows, height-level*height//nwindows
+            hist = binary[top:bottom].sum(axis=0)
+            low, high = int(ranges[side][0]*width), int(ranges[side][1]*width)
+            values = hist[low:high].copy()
+            if not len(values) or values.max() < min_peak:
+                continue
+            peak = low+int(np.argmax(values))
+            strength = int(hist[peak])
+            values[max(0, peak-low-distance):min(len(values), peak-low+distance+1)] = 0
+            if values.max(initial=0) >= ratio*strength:
+                continue
+            local = (y >= top)&(y < bottom)&(abs(x-peak) < margin)
+            if local.sum() < minpix:
+                continue
+            center = int(np.mean(x[local]))
+            other = result["lanes"][("right", "left")[side]]
+            in_band = (other["y"] >= top)&(other["y"] < bottom)
+            reference = int(np.median(other["x"][in_band])) if in_band.any() else result["seeds"][1-side]
+            # No unanchored single-side fallback when both primary seeds failed.
+            if reference is None:
+                continue
+            gap = (reference-center if side == 0 else center-reference)/width
+            if not separation[0] <= gap <= separation[1]:
+                continue
+            candidates.append((strength, center, level, top, bottom))
+        if not candidates:
+            result["initialization"][side]["reason"] = "No unambiguous locally supported, pair-compatible fallback band"
+            continue
+        candidates.sort(reverse=True)
+        best = candidates[0]
+        if any(abs(c[1]-best[1]) > distance and c[0] >= ratio*best[0] for c in candidates[1:]):
+            result["initialization"][side]["reason"] = "Competing fallback positions across bands"
+            continue
+        _, seed, start, top, bottom = best
+        result["seeds"][side] = seed
+        result["initialization"][side] = dict(method="fallback", x=seed, band=[top,bottom],
+            start_window=start, reason="Local peak and pixel support; unambiguous across bands; compatible with other boundary")
+        chosen = []
+        def visit(level, center):
+            top, bottom = height-(level+1)*height//nwindows, height-level*height//nwindows
+            low, high = max(0, center-margin), min(width, center+margin)
+            selected = (y >= top)&(y < bottom)&(x >= low)&(x < high)
+            other = result["lanes"][("right", "left")[side]]
+            # Primary ownership is preserved; each pixel belongs to at most one side.
+            occupied = np.zeros(binary.shape, bool)
+            occupied[other["y"],other["x"]] = True
+            selected &= ~occupied[y,x]
+            found = np.flatnonzero(selected)
+            chosen.extend(found.tolist())
+            result["windows"][level]["boxes"][side] = [low,top,high,bottom]
+            result["windows"][level]["counts"][side] = len(found)
+            return int(np.mean(x[found])) if len(found) >= minpix else center
+        origin = visit(start, seed)
+        for levels in (range(start+1,nwindows), range(start-1,-1,-1)):
+            center = origin
+            for level in levels:
+                center = visit(level, center)
+        selected = np.array(chosen, dtype=np.int64)
+        supported = sum(w["counts"][side] >= minpix for w in result["windows"])
+        result["lanes"][label] = dict(x=x[selected],y=y[selected],count=len(selected),supported_windows=supported)
+        result["reasons"] = [r for r in result["reasons"] if not r.startswith(label+":")]
+        if len(selected) < min_lane_pixels:
+            result["reasons"].append(f"{label}: fewer than {min_lane_pixels} selected pixels")
+        if supported < min_supported_windows:
+            result["reasons"].append(f"{label}: fewer than {min_supported_windows} windows with >= {minpix} pixels")
+    result["passes_heuristics"] = not result["reasons"]
 
 
 def save_visualizations(binary, result, output_dir, name):

@@ -1,0 +1,146 @@
+{
+  "assumptions": {
+    "ym_per_pix": 0.041666666666666664,
+    "xm_per_pix": 0.00578125,
+    "width_bounds_px": [
+      400,
+      900
+    ],
+    "max_width_variation_fraction": 0.25,
+    "straight_epsilon": 1e-09
+  },
+  "caveat": "Approximate scales only, not metric calibration; camera assumed at vehicle center. Positive offset means vehicle right of lane center. Curvature may use an extrapolated bottom value. Infinity is serialized as null with practically_straight status.",
+  "records": [
+    {
+      "curvature": {
+        "left": {
+          "radius_m": 28735.10142348031,
+          "status": "estimated",
+          "metric_coefficients": [
+            -1.7400323977599576e-05,
+            0.0007278256253102111,
+            1.850578393447099
+          ]
+        },
+        "right": {
+          "radius_m": 4967.974730177638,
+          "status": "estimated",
+          "metric_coefficients": [
+            0.00010064634975732686,
+            -0.0026594879152387952,
+            5.5418524657960315
+          ]
+        }
+      },
+      "offset_m": -0.004637464567837562,
+      "lane_width_px": 639.2636365519378,
+      "reasons": [],
+      "geometry_accepted": true,
+      "vehicle_center_x_px": 640.0,
+      "evaluation_y_px": 719,
+      "left_bottom_x_px": 321.17033775738685,
+      "right_bottom_x_px": 960.4339743093246,
+      "observed_y_range": [
+        0.0,
+        719.0
+      ],
+      "observed_width_min_px": 634.2874963691811,
+      "observed_width_max_px": 639.2636365519377,
+      "width_variation_fraction": 0.0077841752576400264,
+      "lane_center_x_px": 640.8021560333557,
+      "image": "straight_lines1",
+      "fit_reliable": {
+        "left": true,
+        "right": true
+      },
+      "bottom_support": {
+        "left": "observed",
+        "right": "observed"
+      }
+    },
+    {
+      "curvature": {
+        "left": {
+          "radius_m": 1632.872353134848,
+          "status": "estimated",
+          "metric_coefficients": [
+            0.00030623976262616044,
+            -0.010147973569956116,
+            2.060667063783674
+          ]
+        },
+        "right": {
+          "radius_m": null,
+          "status": "unreliable_fit",
+          "reasons": [
+            "right: fewer than 4 windows with >= 50 pixels",
+            "Fewer than 4 supported windows"
+          ]
+        }
+      },
+      "offset_m": null,
+      "lane_width_px": null,
+      "reasons": [
+        "right: unreliable boundary; offset not computed"
+      ],
+      "geometry_accepted": false,
+      "vehicle_center_x_px": 640.0,
+      "evaluation_y_px": 719,
+      "image": "test1",
+      "fit_reliable": {
+        "left": true,
+        "right": false
+      },
+      "bottom_support": {
+        "left": "observed"
+      }
+    },
+    {
+      "curvature": {
+        "left": {
+          "radius_m": 5419.129476215113,
+          "status": "estimated",
+          "metric_coefficients": [
+            9.227311750643759e-05,
+            -0.012828963268122391,
+            2.269378660039003
+          ]
+        },
+        "right": {
+          "radius_m": 24770.037550051915,
+          "status": "estimated",
+          "metric_coefficients": [
+            2.018715572763499e-05,
+            -0.00819571967392503,
+            5.932046965817882
+          ]
+        }
+      },
+      "offset_m": -0.1362472282612458,
+      "lane_width_px": 646.3611305414331,
+      "reasons": [],
+      "geometry_accepted": true,
+      "vehicle_center_x_px": 640.0,
+      "evaluation_y_px": 719,
+      "left_bottom_x_px": 340.38652286095834,
+      "right_bottom_x_px": 986.7476534023915,
+      "observed_y_range": [
+        0.0,
+        715.0
+      ],
+      "observed_width_min_px": 633.5426258644547,
+      "observed_width_max_px": 646.3517292476555,
+      "width_variation_fraction": 0.01981725505751101,
+      "lane_center_x_px": 663.567088131675,
+      "image": "test3",
+      "fit_reliable": {
+        "left": true,
+        "right": true
+      },
+      "bottom_support": {
+        "left": "observed",
+        "right": "extrapolated"
+      }
+    }
+  ]
+}
