@@ -1,0 +1,26 @@
+{
+  "left": {
+    "reliable": true,
+    "pixel_count": 30568,
+    "unique_rows": 720,
+    "supported_windows": 9,
+    "coefficients": [
+      9.196389268052866e-05,
+      -0.07313854825193597,
+      356.439708330149
+    ],
+    "reasons": [],
+    "rmse_pixels": 14.47339865979766
+  },
+  "right": {
+    "reliable": false,
+    "pixel_count": 1761,
+    "unique_rows": 122,
+    "supported_windows": 3,
+    "coefficients": null,
+    "reasons": [
+      "right: fewer than 4 windows with >= 50 pixels",
+      "Fewer than 4 supported windows"
+    ]
+  }
+}

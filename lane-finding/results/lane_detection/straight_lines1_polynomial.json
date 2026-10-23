@@ -1,0 +1,28 @@
+{
+  "left": {
+    "reliable": true,
+    "pixel_count": 24362,
+    "unique_rows": 720,
+    "supported_windows": 9,
+    "coefficients": [
+      -5.225322515795668e-06,
+      0.005245590092325845,
+      320.1000464340928
+    ],
+    "reasons": [],
+    "rmse_pixels": 11.411038475783803
+  },
+  "right": {
+    "reliable": true,
+    "pixel_count": 6789,
+    "unique_rows": 271,
+    "supported_windows": 5,
+    "coefficients": [
+      3.022412905625431e-05,
+      -0.019167480470189513,
+      958.5906967863406
+    ],
+    "reasons": [],
+    "rmse_pixels": 9.91052490163486
+  }
+}
