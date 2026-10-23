@@ -1,0 +1,889 @@
+{
+  "total": 8,
+  "two_accepted_boundaries": 5,
+  "acceptance_fraction": 0.625,
+  "not_accuracy": "No manually annotated ground truth; heuristic acceptance only",
+  "settings": {
+    "thresholding": {
+      "white_lightness": [
+        200,
+        255
+      ],
+      "yellow_hue": [
+        15,
+        40
+      ],
+      "yellow_saturation": [
+        100,
+        255
+      ],
+      "yellow_lightness": [
+        40,
+        255
+      ],
+      "sobel_threshold": [
+        40,
+        100
+      ],
+      "sobel_kernel": 3
+    },
+    "roi": [
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.38,
+        0.58
+      ],
+      [
+        0.68,
+        0.58
+      ],
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "source": [
+      [
+        540,
+        490
+      ],
+      [
+        748,
+        490
+      ],
+      [
+        1042,
+        680
+      ],
+      [
+        263,
+        680
+      ]
+    ],
+    "destination": [
+      [
+        320,
+        0
+      ],
+      [
+        960,
+        0
+      ],
+      [
+        960,
+        719
+      ],
+      [
+        320,
+        719
+      ]
+    ],
+    "windows": {
+      "nwindows": 9,
+      "margin": 80,
+      "minpix": 50,
+      "min_lane_pixels": 300,
+      "min_supported_windows": 4
+    },
+    "geometry": {
+      "ym_per_pix": 0.041666666666666664,
+      "xm_per_pix": 0.00578125,
+      "width_bounds_px": [
+        400,
+        900
+      ],
+      "max_width_variation_fraction": 0.25,
+      "straight_epsilon": 1e-09
+    },
+    "fitting": {
+      "min_pixels": 300,
+      "min_unique_y": 100,
+      "min_supported_windows": 4,
+      "max_rmse": 40.0,
+      "max_slope": 2.0,
+      "max_horizontal_span": 0.35
+    }
+  },
+  "skipped_incompatible": [
+    "challange00101.jpg",
+    "challange00111.jpg",
+    "challange00136.jpg",
+    "solidWhiteCurve.jpg",
+    "solidWhiteRight.jpg",
+    "solidYellowCurve.jpg",
+    "solidYellowCurve2.jpg",
+    "solidYellowLeft.jpg",
+    "whiteCarLaneSwitch.jpg"
+  ],
+  "records": [
+    {
+      "image": "straight_lines1.jpg",
+      "distortion_correction_applied": true,
+      "fits": {
+        "left": {
+          "reliable": true,
+          "pixel_count": 24362,
+          "unique_rows": 720,
+          "supported_windows": 9,
+          "coefficients": [
+            -5.225322515795668e-06,
+            0.005245590092325845,
+            320.1000464340928
+          ],
+          "reasons": [],
+          "rmse_pixels": 11.411038475783803
+        },
+        "right": {
+          "reliable": true,
+          "pixel_count": 6789,
+          "unique_rows": 271,
+          "supported_windows": 5,
+          "coefficients": [
+            3.022412905625431e-05,
+            -0.019167480470189513,
+            958.5906967863406
+          ],
+          "reasons": [],
+          "rmse_pixels": 9.91052490163486
+        }
+      },
+      "seeds": [
+        312,
+        954
+      ],
+      "search_reasons": [],
+      "geometry": {
+        "curvature": {
+          "left": {
+            "radius_m": 28735.10142348031,
+            "status": "estimated",
+            "metric_coefficients": [
+              -1.7400323977599576e-05,
+              0.0007278256253102111,
+              1.850578393447099
+            ]
+          },
+          "right": {
+            "radius_m": 4967.974730177638,
+            "status": "estimated",
+            "metric_coefficients": [
+              0.00010064634975732686,
+              -0.0026594879152387952,
+              5.5418524657960315
+            ]
+          }
+        },
+        "offset_m": -0.004637464567837562,
+        "lane_width_px": 639.2636365519378,
+        "reasons": [],
+        "geometry_accepted": true,
+        "vehicle_center_x_px": 640.0,
+        "evaluation_y_px": 719,
+        "left_bottom_x_px": 321.17033775738685,
+        "right_bottom_x_px": 960.4339743093246,
+        "observed_y_range": [
+          0.0,
+          719.0
+        ],
+        "observed_width_min_px": 634.2874963691811,
+        "observed_width_max_px": 639.2636365519377,
+        "width_variation_fraction": 0.0077841752576400264,
+        "lane_center_x_px": 640.8021560333557,
+        "fit_reliable": {
+          "left": true,
+          "right": true
+        },
+        "bottom_support": {
+          "left": "observed",
+          "right": "observed"
+        }
+      },
+      "flags": {
+        "boundary_failure": [],
+        "radius_disagreement": true,
+        "excessive_width_variation": false,
+        "bottom_extrapolation": [],
+        "possible_misidentification": "heuristic concern; manual review required"
+      },
+      "warnings": [
+        "WARNING: boundary radii differ by >= 3x (informational only)"
+      ],
+      "manual_review": "overview inspected; no annotated reference lines",
+      "manual_notes": "No lane identity claim from overview alone; dashed boundary gaps remain visible"
+    },
+    {
+      "image": "straight_lines2.jpg",
+      "distortion_correction_applied": true,
+      "fits": {
+        "left": {
+          "reliable": true,
+          "pixel_count": 4775,
+          "unique_rows": 248,
+          "supported_windows": 6,
+          "coefficients": [
+            4.21546019581268e-05,
+            -0.018379974269647003,
+            321.35106889575184
+          ],
+          "reasons": [],
+          "rmse_pixels": 7.019988990047925
+        },
+        "right": {
+          "reliable": true,
+          "pixel_count": 18911,
+          "unique_rows": 720,
+          "supported_windows": 9,
+          "coefficients": [
+            1.4105896176052184e-05,
+            -0.022510069651741692,
+            971.6515744422278
+          ],
+          "reasons": [],
+          "rmse_pixels": 8.959209448606156
+        }
+      },
+      "seeds": [
+        327,
+        957
+      ],
+      "search_reasons": [],
+      "geometry": {
+        "curvature": {
+          "left": {
+            "radius_m": 3562.075761382056,
+            "status": "estimated",
+            "metric_coefficients": [
+              0.00014037482452056225,
+              -0.002550221429913522,
+              1.8578108670535654
+            ]
+          },
+          "right": {
+            "radius_m": 10644.497149066483,
+            "status": "estimated",
+            "metric_coefficients": [
+              4.697263426625377e-05,
+              -0.00312327216417916,
+              5.61736066474413
+            ]
+          }
+        },
+        "offset_m": -0.03667389452925352,
+        "lane_width_px": 632.8308799769427,
+        "reasons": [],
+        "geometry_accepted": true,
+        "vehicle_center_x_px": 640.0,
+        "evaluation_y_px": 719,
+        "left_bottom_x_px": 329.9281525787508,
+        "right_bottom_x_px": 962.7590325556936,
+        "observed_y_range": [
+          0.0,
+          719.0
+        ],
+        "observed_width_min_px": 632.8308799769428,
+        "observed_width_max_px": 650.300505546476,
+        "width_variation_fraction": 0.027605520088036253,
+        "lane_center_x_px": 646.3435925672222,
+        "fit_reliable": {
+          "left": true,
+          "right": true
+        },
+        "bottom_support": {
+          "left": "observed",
+          "right": "observed"
+        }
+      },
+      "flags": {
+        "boundary_failure": [],
+        "radius_disagreement": false,
+        "excessive_width_variation": false,
+        "bottom_extrapolation": [],
+        "possible_misidentification": "not established; manual review required"
+      },
+      "warnings": [],
+      "manual_review": "overview inspected; no annotated reference lines",
+      "manual_notes": "No lane identity claim from overview alone; dashed boundary gaps remain visible"
+    },
+    {
+      "image": "test1.jpg",
+      "distortion_correction_applied": true,
+      "fits": {
+        "left": {
+          "reliable": true,
+          "pixel_count": 30568,
+          "unique_rows": 720,
+          "supported_windows": 9,
+          "coefficients": [
+            9.196389268052866e-05,
+            -0.07313854825193597,
+            356.439708330149
+          ],
+          "reasons": [],
+          "rmse_pixels": 14.47339865979766
+        },
+        "right": {
+          "reliable": false,
+          "pixel_count": 1761,
+          "unique_rows": 122,
+          "supported_windows": 3,
+          "coefficients": null,
+          "reasons": [
+            "right: fewer than 4 windows with >= 50 pixels",
+            "Fewer than 4 supported windows"
+          ]
+        }
+      },
+      "seeds": [
+        340,
+        1002
+      ],
+      "search_reasons": [
+        "right: fewer than 4 windows with >= 50 pixels"
+      ],
+      "geometry": {
+        "curvature": {
+          "left": {
+            "radius_m": 1632.872353134848,
+            "status": "estimated",
+            "metric_coefficients": [
+              0.00030623976262616044,
+              -0.010147973569956116,
+              2.060667063783674
+            ]
+          },
+          "right": {
+            "radius_m": null,
+            "status": "unreliable_fit",
+            "reasons": [
+              "right: fewer than 4 windows with >= 50 pixels",
+              "Fewer than 4 supported windows"
+            ]
+          }
+        },
+        "offset_m": null,
+        "lane_width_px": null,
+        "reasons": [
+          "right: unreliable boundary; offset not computed"
+        ],
+        "geometry_accepted": false,
+        "vehicle_center_x_px": 640.0,
+        "evaluation_y_px": 719,
+        "fit_reliable": {
+          "left": true,
+          "right": false
+        },
+        "bottom_support": {
+          "left": "observed"
+        }
+      },
+      "flags": {
+        "boundary_failure": [
+          "right"
+        ],
+        "radius_disagreement": false,
+        "excessive_width_variation": false,
+        "bottom_extrapolation": [],
+        "possible_misidentification": "heuristic concern; manual review required"
+      },
+      "warnings": [
+        "right: UNRELIABLE - no curve or radius"
+      ],
+      "manual_review": "overview inspected; no annotated reference lines",
+      "manual_notes": "No lane identity claim from overview alone; dashed boundary gaps remain visible"
+    },
+    {
+      "image": "test2.jpg",
+      "distortion_correction_applied": true,
+      "fits": {
+        "left": {
+          "reliable": true,
+          "pixel_count": 22228,
+          "unique_rows": 720,
+          "supported_windows": 9,
+          "coefficients": [
+            -3.8033871925188734e-05,
+            0.07599322319307009,
+            345.9952317930241
+          ],
+          "reasons": [],
+          "rmse_pixels": 11.034661351025644
+        },
+        "right": {
+          "reliable": false,
+          "pixel_count": 0,
+          "unique_rows": 0,
+          "supported_windows": 0,
+          "coefficients": null,
+          "reasons": [
+            "right: no peak with at least 20 pixels",
+            "right: fewer than 300 selected pixels",
+            "right: fewer than 4 windows with >= 50 pixels",
+            "No reliable starting position",
+            "Fewer than 300 pixels",
+            "Fewer than 100 distinct rows",
+            "Fewer than 4 supported windows"
+          ]
+        }
+      },
+      "seeds": [
+        370,
+        null
+      ],
+      "search_reasons": [
+        "right: no peak with at least 20 pixels",
+        "right: fewer than 300 selected pixels",
+        "right: fewer than 4 windows with >= 50 pixels"
+      ],
+      "geometry": {
+        "curvature": {
+          "left": {
+            "radius_m": 3947.8525277802078,
+            "status": "estimated",
+            "metric_coefficients": [
+              -0.0001266527935108785,
+              0.010544059718038476,
+              2.0002849338034205
+            ]
+          },
+          "right": {
+            "radius_m": null,
+            "status": "unreliable_fit",
+            "reasons": [
+              "right: no peak with at least 20 pixels",
+              "right: fewer than 300 selected pixels",
+              "right: fewer than 4 windows with >= 50 pixels",
+              "No reliable starting position",
+              "Fewer than 300 pixels",
+              "Fewer than 100 distinct rows",
+              "Fewer than 4 supported windows"
+            ]
+          }
+        },
+        "offset_m": null,
+        "lane_width_px": null,
+        "reasons": [
+          "right: unreliable boundary; offset not computed"
+        ],
+        "geometry_accepted": false,
+        "vehicle_center_x_px": 640.0,
+        "evaluation_y_px": 719,
+        "fit_reliable": {
+          "left": true,
+          "right": false
+        },
+        "bottom_support": {
+          "left": "observed"
+        }
+      },
+      "flags": {
+        "boundary_failure": [
+          "right"
+        ],
+        "radius_disagreement": false,
+        "excessive_width_variation": false,
+        "bottom_extrapolation": [],
+        "possible_misidentification": "heuristic concern; manual review required"
+      },
+      "warnings": [
+        "right: UNRELIABLE - no curve or radius"
+      ],
+      "manual_review": "overview inspected; no annotated reference lines",
+      "manual_notes": "No lane identity claim from overview alone; dashed boundary gaps remain visible"
+    },
+    {
+      "image": "test3.jpg",
+      "distortion_correction_applied": true,
+      "fits": {
+        "left": {
+          "reliable": true,
+          "pixel_count": 25519,
+          "unique_rows": 720,
+          "supported_windows": 9,
+          "coefficients": [
+            2.7709644896828103e-05,
+            -0.09246099652700822,
+            392.5411736283681
+          ],
+          "reasons": [],
+          "rmse_pixels": 11.421996621683654
+        },
+        "right": {
+          "reliable": true,
+          "pixel_count": 5273,
+          "unique_rows": 270,
+          "supported_windows": 6,
+          "coefficients": [
+            6.062208927217715e-06,
+            -0.05906824990216236,
+            1026.083799492823
+          ],
+          "reasons": [],
+          "rmse_pixels": 7.690137768862235
+        }
+      },
+      "seeds": [
+        349,
+        992
+      ],
+      "search_reasons": [],
+      "geometry": {
+        "curvature": {
+          "left": {
+            "radius_m": 5419.129476215113,
+            "status": "estimated",
+            "metric_coefficients": [
+              9.227311750643759e-05,
+              -0.012828963268122391,
+              2.269378660039003
+            ]
+          },
+          "right": {
+            "radius_m": 24770.037550051915,
+            "status": "estimated",
+            "metric_coefficients": [
+              2.018715572763499e-05,
+              -0.00819571967392503,
+              5.932046965817882
+            ]
+          }
+        },
+        "offset_m": -0.1362472282612458,
+        "lane_width_px": 646.3611305414331,
+        "reasons": [],
+        "geometry_accepted": true,
+        "vehicle_center_x_px": 640.0,
+        "evaluation_y_px": 719,
+        "left_bottom_x_px": 340.38652286095834,
+        "right_bottom_x_px": 986.7476534023915,
+        "observed_y_range": [
+          0.0,
+          715.0
+        ],
+        "observed_width_min_px": 633.5426258644547,
+        "observed_width_max_px": 646.3517292476555,
+        "width_variation_fraction": 0.01981725505751101,
+        "lane_center_x_px": 663.567088131675,
+        "fit_reliable": {
+          "left": true,
+          "right": true
+        },
+        "bottom_support": {
+          "left": "observed",
+          "right": "extrapolated"
+        }
+      },
+      "flags": {
+        "boundary_failure": [],
+        "radius_disagreement": true,
+        "excessive_width_variation": false,
+        "bottom_extrapolation": [
+          "right"
+        ],
+        "possible_misidentification": "heuristic concern; manual review required"
+      },
+      "warnings": [
+        "right: bottom EXTRAPOLATED; radius and offset use this estimate",
+        "WARNING: boundary radii differ by >= 3x (informational only)"
+      ],
+      "manual_review": "overview inspected; no annotated reference lines",
+      "manual_notes": "No lane identity claim from overview alone; dashed boundary gaps remain visible"
+    },
+    {
+      "image": "test4.jpg",
+      "distortion_correction_applied": true,
+      "fits": {
+        "left": {
+          "reliable": true,
+          "pixel_count": 34525,
+          "unique_rows": 720,
+          "supported_windows": 9,
+          "coefficients": [
+            3.151476210467702e-05,
+            -0.03722775269289886,
+            369.80338683354216
+          ],
+          "reasons": [],
+          "rmse_pixels": 21.866156253193715
+        },
+        "right": {
+          "reliable": true,
+          "pixel_count": 9050,
+          "unique_rows": 277,
+          "supported_windows": 5,
+          "coefficients": [
+            -0.00023980164788933045,
+            0.21101313770885147,
+            983.815429035797
+          ],
+          "reasons": [],
+          "rmse_pixels": 11.68522736649151
+        }
+      },
+      "seeds": [
+        360,
+        1032
+      ],
+      "search_reasons": [],
+      "geometry": {
+        "curvature": {
+          "left": {
+            "radius_m": 4764.447640877704,
+            "status": "estimated",
+            "metric_coefficients": [
+              0.00010494415780857447,
+              -0.005165350686139717,
+              2.1379258301314157
+            ]
+          },
+          "right": {
+            "radius_m": 626.466945190239,
+            "status": "estimated",
+            "metric_coefficients": [
+              -0.0007985394874714704,
+              0.029278072857103144,
+              5.687682949113201
+            ]
+          }
+        },
+        "offset_m": -0.2627413675426947,
+        "lane_width_px": 652.2372397742013,
+        "reasons": [],
+        "geometry_accepted": true,
+        "vehicle_center_x_px": 640.0,
+        "evaluation_y_px": 719,
+        "left_bottom_x_px": 359.3285355797438,
+        "right_bottom_x_px": 1011.5657753539451,
+        "observed_y_range": [
+          140.0,
+          664.0
+        ],
+        "observed_width_min_px": 643.4479652226173,
+        "observed_width_max_px": 670.7940293927965,
+        "width_variation_fraction": 0.041926560617186026,
+        "lane_center_x_px": 685.4471554668445,
+        "fit_reliable": {
+          "left": true,
+          "right": true
+        },
+        "bottom_support": {
+          "left": "observed",
+          "right": "extrapolated"
+        }
+      },
+      "flags": {
+        "boundary_failure": [],
+        "radius_disagreement": true,
+        "excessive_width_variation": false,
+        "bottom_extrapolation": [
+          "right"
+        ],
+        "possible_misidentification": "visual suspicion: left pixel cluster includes off-boundary features; not confirmed"
+      },
+      "warnings": [
+        "right: bottom EXTRAPOLATED; radius and offset use this estimate",
+        "WARNING: boundary radii differ by >= 3x (informational only)"
+      ],
+      "manual_review": "overview inspected; no annotated reference lines",
+      "manual_notes": "Possible contamination of left assigned pixels by nearby non-lane features; identity needs closer review"
+    },
+    {
+      "image": "test5.jpg",
+      "distortion_correction_applied": true,
+      "fits": {
+        "left": {
+          "reliable": true,
+          "pixel_count": 21762,
+          "unique_rows": 720,
+          "supported_windows": 9,
+          "coefficients": [
+            5.811042275510216e-05,
+            -0.060094030105077634,
+            309.4277878729592
+          ],
+          "reasons": [],
+          "rmse_pixels": 13.45348853999556
+        },
+        "right": {
+          "reliable": true,
+          "pixel_count": 5148,
+          "unique_rows": 246,
+          "supported_windows": 4,
+          "coefficients": [
+            4.092955103109179e-05,
+            -0.09289586720637937,
+            1029.7573755320027
+          ],
+          "reasons": [],
+          "rmse_pixels": 6.55598332617243
+        }
+      },
+      "seeds": [
+        283,
+        992
+      ],
+      "search_reasons": [],
+      "geometry": {
+        "curvature": {
+          "left": {
+            "radius_m": 2583.917500448722,
+            "status": "estimated",
+            "metric_coefficients": [
+              0.0001935077077744902,
+              -0.008338046677079523,
+              1.7888793986405453
+            ]
+          },
+          "right": {
+            "radius_m": 3668.6249982162676,
+            "status": "estimated",
+            "metric_coefficients": [
+              0.00013629540493353566,
+              -0.012889301574885138,
+              5.95328482729439
+            ]
+          }
+        },
+        "offset_m": -0.0011135587250647027,
+        "lane_width_px": 687.8632261558914,
+        "reasons": [],
+        "geometry_accepted": true,
+        "vehicle_center_x_px": 640.0,
+        "evaluation_y_px": 719,
+        "left_bottom_x_px": 296.2610024853087,
+        "right_bottom_x_px": 984.1242286412001,
+        "observed_y_range": [
+          198.0,
+          642.0
+        ],
+        "observed_width_min_px": 692.1894714267527,
+        "observed_width_max_px": 713.1612650179176,
+        "width_variation_fraction": 0.030488319179912127,
+        "lane_center_x_px": 640.1926155632544,
+        "fit_reliable": {
+          "left": true,
+          "right": true
+        },
+        "bottom_support": {
+          "left": "observed",
+          "right": "extrapolated"
+        }
+      },
+      "flags": {
+        "boundary_failure": [],
+        "radius_disagreement": false,
+        "excessive_width_variation": false,
+        "bottom_extrapolation": [
+          "right"
+        ],
+        "possible_misidentification": "heuristic concern; manual review required"
+      },
+      "warnings": [
+        "right: bottom EXTRAPOLATED; radius and offset use this estimate"
+      ],
+      "manual_review": "overview inspected; no annotated reference lines",
+      "manual_notes": "No lane identity claim from overview alone; dashed boundary gaps remain visible"
+    },
+    {
+      "image": "test6.jpg",
+      "distortion_correction_applied": true,
+      "fits": {
+        "left": {
+          "reliable": true,
+          "pixel_count": 27182,
+          "unique_rows": 720,
+          "supported_windows": 9,
+          "coefficients": [
+            3.957132718982e-05,
+            -0.10182960731344233,
+            409.9039172551383
+          ],
+          "reasons": [],
+          "rmse_pixels": 11.465090448766333
+        },
+        "right": {
+          "reliable": false,
+          "pixel_count": 0,
+          "unique_rows": 0,
+          "supported_windows": 0,
+          "coefficients": null,
+          "reasons": [
+            "right: no peak with at least 20 pixels",
+            "right: fewer than 300 selected pixels",
+            "right: fewer than 4 windows with >= 50 pixels",
+            "No reliable starting position",
+            "Fewer than 300 pixels",
+            "Fewer than 100 distinct rows",
+            "Fewer than 4 supported windows"
+          ]
+        }
+      },
+      "seeds": [
+        363,
+        null
+      ],
+      "search_reasons": [
+        "right: no peak with at least 20 pixels",
+        "right: fewer than 300 selected pixels",
+        "right: fewer than 4 windows with >= 50 pixels"
+      ],
+      "geometry": {
+        "curvature": {
+          "left": {
+            "radius_m": 3794.639005910079,
+            "status": "estimated",
+            "metric_coefficients": [
+              0.0001317725195421006,
+              -0.014128858014740125,
+              2.3697570216312682
+            ]
+          },
+          "right": {
+            "radius_m": null,
+            "status": "unreliable_fit",
+            "reasons": [
+              "right: no peak with at least 20 pixels",
+              "right: fewer than 300 selected pixels",
+              "right: fewer than 4 windows with >= 50 pixels",
+              "No reliable starting position",
+              "Fewer than 300 pixels",
+              "Fewer than 100 distinct rows",
+              "Fewer than 4 supported windows"
+            ]
+          }
+        },
+        "offset_m": null,
+        "lane_width_px": null,
+        "reasons": [
+          "right: unreliable boundary; offset not computed"
+        ],
+        "geometry_accepted": false,
+        "vehicle_center_x_px": 640.0,
+        "evaluation_y_px": 719,
+        "fit_reliable": {
+          "left": true,
+          "right": false
+        },
+        "bottom_support": {
+          "left": "observed"
+        }
+      },
+      "flags": {
+        "boundary_failure": [
+          "right"
+        ],
+        "radius_disagreement": false,
+        "excessive_width_variation": false,
+        "bottom_extrapolation": [],
+        "possible_misidentification": "heuristic concern; manual review required"
+      },
+      "warnings": [
+        "right: UNRELIABLE - no curve or radius"
+      ],
+      "manual_review": "overview inspected; no annotated reference lines",
+      "manual_notes": "No lane identity claim from overview alone; dashed boundary gaps remain visible"
+    }
+  ]
+}
