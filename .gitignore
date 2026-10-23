@@ -45,3 +45,19 @@ lane-finding/results/perspective_transform/*_inspection.jpg
 # Intermediate lane detection data
 lane-finding/results/lane_detection/*_pixels.npz
 lane-finding/results/lane_detection/*_polynomial.npz
+
+# Lane finding - intermediate evaluation outputs
+lane-finding/results/evaluation/diagnostics/
+lane-finding/results/evaluation/fallback_experiment/
+lane-finding/results/evaluation/test1_experiment/
+
+lane-finding/results/evaluation/*_binary.png
+lane-finding/results/evaluation/*_geometry.png
+lane-finding/results/evaluation/*_histogram.png
+lane-finding/results/evaluation/*_masks.npz
+lane-finding/results/evaluation/*_polynomial.png
+lane-finding/results/evaluation/*_undistorted.jpg
+lane-finding/results/evaluation/*_warped.png
+lane-finding/results/evaluation/*_windows.jpg
+
+lane-finding/results/lane_geometry/*_geometry.png
