@@ -164,7 +164,7 @@ Writing x as a function of y suits mostly vertical bird-view boundaries. A quadr
 At 1280 by 720, a boundary needs a reliable seed, no applicable search failure, **300 assigned pixels**, **100 distinct rows** and **4 supported windows**. The resulting coefficients and curve must be finite. Over the whole image height, the curve must stay inside the image, have span at most 35% of width, maximum absolute slope at most 2, and horizontal RMSE at most 40 pixels:
 
 $$
-\operatorname{RMSE}_x=\sqrt{\frac{1}{N}\sum_{i=1}^{N}\left(Ay_i^2+By_i+C-x_i\right)^2}.
+\mathrm{RMSE}_x=\sqrt{\frac{1}{N}\sum_{i=1}^{N}\left(Ay_i^2+By_i+C-x_i\right)^2}.
 $$
 
 Successful execution of `polyfit` is insufficient. Every row is evaluated, distinguishing rows containing assigned pixels, internal gaps (interpolation) and rows beyond the observed extent (extrapolation). Production support flags mean at least one assigned pixel on that row, not dense or semantically correct evidence.
@@ -285,6 +285,8 @@ Final outputs are linked below. The template's driving-quality statement is a go
 | project_video02 | [MP4](./results/video/final_presentation/project_video02/project_video02_final.mp4) | 960×540 | 25 | 681 / 681 | 100.00% |
 | project_video03 | [MP4](./results/video/final_presentation/project_video03/project_video03_final.mp4) | 1280×720 | 25 | 1243 / 1260 | 98.65% |
 
+If GitHub cannot preview a video, select View raw to download it.
+
 **Acceptance is not accuracy.** A frame counts when fits and geometry permit rendering. There are no manually annotated reference trajectories or dense lane-pixel labels for an accuracy calculation. Visual review provides diagnostic evidence, not an accuracy percentage.
 
 The final presentation preserves resolution, FPS and all **2,162 decoded frames**. Per-frame numeric diagnostics match the previous final version exactly, excluding processing time. All 17 unavailable project_video03 frames were checked for absent road overlay; its longest failure period is five frames, or 0.20 s. See [validation.md](./results/video/final_presentation/validation.md), [validation_report.json](./results/video/final_presentation/validation_report.json) and [summary.json](./results/video/final_presentation/summary.json). Outputs are silent: source audio is not copied.
@@ -304,7 +306,7 @@ For the three project videos, the project adopts the assumption of the **same ca
 `video_config.scale_calibration()` uses:
 
 $$
-K_{W,H}=\operatorname{diag}\left(\frac{W}{1280},\frac{H}{720},1\right)K_{1280,720}.
+K_{W,H}=\mathrm{diag}\left(\frac{W}{1280},\frac{H}{720},1\right)K_{1280,720}.
 $$
 
 At 960 by 540, both factors are 0.75. Focal lengths and principal-point coordinates scale, while dimensionless distortion coefficients stay unchanged:
