@@ -1,1 +1,0 @@
-# Digital-Image-and-Video-Processing
