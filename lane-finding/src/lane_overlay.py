@@ -38,13 +38,64 @@ def inverse_warp(image, inverse, output_size):
                                borderMode=cv2.BORDER_CONSTANT, borderValue=0)
 
 
-def render_overlay(image, fits, geometry, inverse, alpha=0.3):
+def format_overlay_text(fits, geometry, nearly_straight_m=10000, centered_m=0.05):
+    """Format display-only estimates without changing geometry or diagnostics."""
+    if not np.isfinite(nearly_straight_m) or nearly_straight_m <= 0:
+        raise ValueError('Nearly-straight display threshold must be positive and finite')
+    if not np.isfinite(centered_m) or centered_m < 0:
+        raise ValueError('Centered display threshold must be nonnegative and finite')
+    lines = ['LANE DETECTION']
+    accepted = all(fits[s]['reliable'] for s in ('left', 'right')) and geometry['geometry_accepted']
+    if not accepted:
+        return lines + ['Lane unavailable', 'Insufficient reliable lane boundaries']
+    for side in ('left', 'right'):
+        curvature = geometry['curvature'][side]
+        radius = curvature['radius_m']
+        if curvature['status'] == 'practically_straight' or (radius is not None and radius >= nearly_straight_m):
+            label = 'Nearly straight'
+        elif radius is None or not np.isfinite(radius):
+            label = 'Unavailable'
+        else:
+            label = f'~{radius:,.0f} m'
+        lines.append(f'{side.title()} curvature: {label}')
+    offset = geometry['offset_m']
+    position = ('Centered' if abs(offset) <= centered_m else
+                f'{abs(offset):.2f} m {"right" if offset > 0 else "left"} of center')
+    lines.append(f'Vehicle position: {position}')
+    extrapolated = [s.title() for s in ('left', 'right')
+                    if geometry.get('bottom_support', {}).get(s) == 'extrapolated']
+    note = 'Approximate estimates'
+    if extrapolated:
+        note += ' | Both boundaries extrapolated' if len(extrapolated) == 2 else f' | {extrapolated[0]} boundary extrapolated'
+    return lines + [note]
+
+
+def draw_overlay_text(image, lines):
+    """Fit a compact information panel to the image width and resolution."""
+    output = image.copy()
+    scale = min(image.shape[1] / 1280, image.shape[0] / 720)
+    font = cv2.FONT_HERSHEY_SIMPLEX
+    padding = max(6, round(16 * scale))
+    font_scale = max(0.3, 0.75 * scale)
+    longest = max(cv2.getTextSize(line, font, font_scale, 1)[0][0] for line in lines)
+    font_scale *= min(1, (image.shape[1] - 2 * padding) / max(longest, 1))
+    text_height, baseline = cv2.getTextSize('Ag', font, font_scale, 1)[0][1], 5
+    spacing = max(text_height + baseline + 4, round(32 * scale))
+    panel_height = padding * 2 + spacing * len(lines)
+    cv2.rectangle(output, (0, 0), (image.shape[1]-1, panel_height-1), (25, 25, 25), -1)
+    for index, line in enumerate(lines):
+        cv2.putText(output, line, (padding, padding + text_height + spacing * index),
+                    font, font_scale, (255, 255, 255), 1, cv2.LINE_AA)
+    return output
+
+
+def render_overlay(image, fits, geometry, inverse, alpha=0.3, *, nearly_straight_m=10000, centered_m=0.05):
     """Return annotated image and whether a lane area was rendered."""
     if not 0 <= alpha <= 1:
         raise ValueError('Alpha must be in [0, 1]')
     output = image.copy()
     accepted = all(fits[s]['reliable'] for s in ('left', 'right')) and geometry['geometry_accepted']
-    lines = ['APPROXIMATE geometry - assumed metric scales, not physical calibration']
+    lines = format_overlay_text(fits, geometry, nearly_straight_m, centered_m)
     if accepted:
         polygon = lane_polygon(fits, image.shape)
         layer = np.zeros_like(image)
@@ -61,25 +112,8 @@ def render_overlay(image, fits, geometry, inverse, alpha=0.3):
         edges = inverse_warp(edges,inverse,image.shape[1::-1])
         selected = edges.max(axis=2)>0
         output[selected] = edges[selected]
-        radii = []
-        for side in ('left','right'):
-            value=geometry['curvature'][side]
-            radii.append('straight' if value['status']=='practically_straight' else f"~{value['radius_m']:.0f} m")
-        lines += [f"Radius L/R: {radii[0]} / {radii[1]}",
-                  f"Offset: {geometry['offset_m']:+.2f} m (+right / -left)"]
-        lines += uncertainty_labels(geometry)
-    else:
-        lines.append('LANE UNAVAILABLE: both boundaries not reliably detected' if
-                     not all(fits[s]['reliable'] for s in ('left','right')) else
-                     'LANE UNAVAILABLE: geometry checks rejected')
-        lines.append('No lane area or vehicle offset shown')
-        lines += geometry['reasons']
     # Text is drawn after compositing and never changes the numeric masks.
-    cv2.rectangle(output,(0,0),(image.shape[1]-1,28*len(lines)+14),(25,25,25),-1)
-    for i,text in enumerate(lines):
-        cv2.putText(output,text,(12,26+28*i),cv2.FONT_HERSHEY_SIMPLEX,0.53,
-                    (255,255,255),1,cv2.LINE_AA)
-    return output, accepted
+    return draw_overlay_text(output, lines), accepted
 
 
 def main():

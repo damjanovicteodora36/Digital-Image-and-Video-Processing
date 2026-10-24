@@ -1,0 +1,72 @@
+[
+  {
+    "file": "calibration_corners.jpg",
+    "source": "results/calibration/calibration2_corners.jpg",
+    "sha256": "ec56dc57b80197d9229279382c125b24a539914db5fbfc41f36760a71a2af7d5"
+  },
+  {
+    "file": "calibration_undistortion.jpg",
+    "source": "results/calibration/calibration2_comparison.jpg",
+    "sha256": "29f25798f3bb51da5a2b6ec3a2d2770e548b48055458650c003876d21408047f"
+  },
+  {
+    "file": "road_undistortion.jpg",
+    "source": "results/calibration/test1_comparison.jpg",
+    "sha256": "687d9ebc9cd8fc868de854a164327a240b32256d6f91e935295e164e87f0202d"
+  },
+  {
+    "file": "color_gradient_roi.jpg",
+    "source": "results/thresholding/final/test3_comparison.jpg",
+    "sha256": "8e69d751dd2493cc108c941c64f6e15827245b5d81412b73ac3a6e3b2d8205e6"
+  },
+  {
+    "file": "perspective_transform.jpg",
+    "source": "results/perspective_transform/straight_lines1_comparison.jpg",
+    "sha256": "2dbd2097fa48485f5129817c3d5b62b47a7a2fa164e91d23b8925e5629fb3936"
+  },
+  {
+    "file": "histogram.png",
+    "source": "results/lane_detection/straight_lines1_histogram.png",
+    "sha256": "f70febcee3035a8e941a3f8b7d6900e5380f636750794c96515da6cd509ca5f3"
+  },
+  {
+    "file": "sliding_windows.jpg",
+    "source": "results/lane_detection/straight_lines1_windows.jpg",
+    "sha256": "e4bb67c74f972ef7cc5c9bab60a8320ca01df099ae00c1c2e7e801de45ae480e"
+  },
+  {
+    "file": "polynomial_fit.png",
+    "source": "results/lane_detection/straight_lines1_polynomial.png",
+    "sha256": "f66e67d8ddb663ff01437a7bc3852e8d36b2a35ddf9907f64ce4d7b55f8fe070"
+  },
+  {
+    "file": "lane_geometry.png",
+    "source": "results/lane_geometry/straight_lines1_geometry_visualization.png",
+    "sha256": "3a5caaa4bc85c9568e8de74752636c68a7a0513642d2f9fb0fc2aa1bc31235de"
+  },
+  {
+    "file": "final_960.png",
+    "source": "results/video/final_presentation/docs_candidates/project_video01_000087_960_nearly_straight.png",
+    "sha256": "78140efdc4ad2f7940f2a9fa705a4248e9867c573b987bb558e6bbd63177f7d0"
+  },
+  {
+    "file": "final_centered_960.png",
+    "source": "results/video/final_presentation/docs_candidates/project_video02_000103_960_centered.png",
+    "sha256": "7099aed645a1b732977dffb005b644093185c942dc0a5c3652505caab67855e6"
+  },
+  {
+    "file": "final_curvature_1280.png",
+    "source": "results/video/final_presentation/docs_candidates/project_video03_000997_1280_curvature.png",
+    "sha256": "d0caaf77ab75a182418a2f0b0a321adf51117ab033d705828d642c6927d85e2a"
+  },
+  {
+    "file": "final_extrapolation_1280.png",
+    "source": "results/video/final_presentation/docs_candidates/project_video03_000547_1280_extrapolation.png",
+    "sha256": "b35b602e38d7950ad7dfecc737da46a7e0a73890b728e40e920188ca54039313"
+  },
+  {
+    "file": "lane_unavailable.png",
+    "source": "results/video/final_presentation/docs_candidates/project_video03_000500_1280_unavailable.png",
+    "sha256": "79b4a363b0695b5d62b01784975e79b57f61f1a19a225870cfc4a040e780f76b"
+  }
+]

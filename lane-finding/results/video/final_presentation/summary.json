@@ -1,0 +1,579 @@
+{
+  "camera_assumption": "The three project_video clips are assumed to share camera, lens and full field of view; only resolution differs. This is an adopted project assumption, not independently verified data.",
+  "camera_identity_independently_confirmed": false,
+  "videos": [
+    {
+      "input": {
+        "path": "D:\\Teodora\\Fakultet\\Master\\DOSiVuAutonomnimVozilima\\Projekat\\Zadatak\\projekat\\Digital-Image-and-Video-Processing\\lane-finding\\test_videos\\project_video01.mp4",
+        "width": 960,
+        "height": 540,
+        "fps": 25.0,
+        "frames": 221
+      },
+      "output": {
+        "path": "results\\video\\final_presentation\\project_video01\\project_video01_final.mp4",
+        "width": 960,
+        "height": 540,
+        "fps": 25.0,
+        "frames": 221,
+        "decoded_frames": 221
+      },
+      "total_frames": 221,
+      "frames_two_accepted_boundaries": 221,
+      "frames_with_lane": 221,
+      "frames_without_reliable_lane": 0,
+      "fallback_frames": 35,
+      "fallback_boundary_activations": 35,
+      "fallback_attempt_frames": 35,
+      "mean_processing_seconds": 0.14626536288243883,
+      "effective_processing_fps": 6.836888654245179,
+      "wall_seconds": 33.94941779971123,
+      "end_to_end_fps": 6.509684534321523,
+      "adjacent_center_change": {
+        "pairs": 220,
+        "definition": "Bottom lane-center x, adjacent frames with accepted geometry only; no bridging failures",
+        "mean_absolute_px": 1.3745591252742178,
+        "p95_absolute_px": 3.8912108334010482,
+        "max_absolute_px": 6.731333584830338,
+        "over_30_px": 0,
+        "large_jump_threshold_px": 22.494136043784206,
+        "large_jumps": 0,
+        "p95_reference_px": 5.189633634953015,
+        "max_reference_px": 8.977451152239837
+      },
+      "largest_jump": {
+        "before_frame": 63,
+        "after_frame": 64,
+        "delta_px": -6.731333584830338
+      },
+      "longest_failure_frames": 0,
+      "warning_frame_counts": {
+        "left: bottom EXTRAPOLATED; radius and offset use this estimate": 145,
+        "WARNING: boundary radii differ by >= 3x (informational only)": 133
+      },
+      "assumptions": "No temporal state in detection. Metric scales are assumptions. Acceptance is not accuracy. Output is silent; source audio is not copied.",
+      "resolution_configuration": {
+        "image_size": [
+          960,
+          540
+        ],
+        "reference_size": [
+          1280,
+          720
+        ],
+        "camera_scale": [
+          0.75,
+          0.75
+        ],
+        "pixel_scale": [
+          0.7498045347928068,
+          0.7496522948539638
+        ],
+        "source_points": [
+          [
+            404.8944487881157,
+            367.32962447844227
+          ],
+          [
+            560.8537920250195,
+            367.32962447844227
+          ],
+          [
+            781.2963252541048,
+            509.76356050069535
+          ],
+          [
+            197.1985926505082,
+            509.76356050069535
+          ]
+        ],
+        "destination_points": [
+          [
+            239.93745113369818,
+            0.0
+          ],
+          [
+            719.8123534010946,
+            0.0
+          ],
+          [
+            719.8123534010946,
+            539.0
+          ],
+          [
+            239.93745113369818,
+            539.0
+          ]
+        ],
+        "roi": [
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.38,
+            0.58
+          ],
+          [
+            0.68,
+            0.58
+          ],
+          [
+            1.0,
+            1.0
+          ]
+        ],
+        "search": {
+          "nwindows": 9,
+          "margin": 60,
+          "minpix": 29,
+          "min_lane_pixels": 169,
+          "min_supported_windows": 4,
+          "seed_parameters": {
+            "min_peak": 15,
+            "peak_distance": 45
+          }
+        },
+        "fit": {
+          "min_pixels": 169,
+          "min_unique_y": 75,
+          "min_supported_windows": 4,
+          "max_rmse": 29.992181391712272,
+          "max_slope": 2.0004061614694923,
+          "max_horizontal_span": 0.35
+        },
+        "geometry": {
+          "ym_per_pix": 0.0555813234384663,
+          "xm_per_pix": 0.007710342805005214,
+          "width_bounds_px": [
+            299.92181391712273,
+            674.8240813135261
+          ],
+          "max_width_variation_fraction": 0.25,
+          "straight_epsilon": 1e-09
+        },
+        "large_jump_threshold_px": 22.494136043784206,
+        "camera_assumption": "The three project_video clips are assumed to share camera, lens and full field of view; only resolution differs. This is an adopted project assumption, not independently verified data.",
+        "camera_identity_independently_confirmed": false,
+        "temporal_tracking": false,
+        "coordinate_policy": "Dimension-ratio camera intrinsics; endpoint-normalized selected road points/ROI. These are the tested policies, not an exact resampling equivalence claim."
+      },
+      "applied_camera_matrix": [
+        [
+          869.0810654545128,
+          0.0,
+          502.232055971649
+        ],
+        [
+          0.0,
+          865.5574555398925,
+          291.0595878052085
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "distortion_coefficients": [
+        [
+          -0.2567790821743934,
+          0.043384515888101695,
+          -0.0006874544870819351,
+          0.00012576902232175644,
+          -0.11502545693507232
+        ]
+      ],
+      "camera_assumption": "The three project_video clips are assumed to share camera, lens and full field of view; only resolution differs. This is an adopted project assumption, not independently verified data.",
+      "camera_identity_independently_confirmed": false,
+      "undistortion_applied": true,
+      "extrapolated_bottom_frames": {
+        "left": 145,
+        "right": 0
+      }
+    },
+    {
+      "input": {
+        "path": "D:\\Teodora\\Fakultet\\Master\\DOSiVuAutonomnimVozilima\\Projekat\\Zadatak\\projekat\\Digital-Image-and-Video-Processing\\lane-finding\\test_videos\\project_video02.mp4",
+        "width": 960,
+        "height": 540,
+        "fps": 25.0,
+        "frames": 681
+      },
+      "output": {
+        "path": "results\\video\\final_presentation\\project_video02\\project_video02_final.mp4",
+        "width": 960,
+        "height": 540,
+        "fps": 25.0,
+        "frames": 681,
+        "decoded_frames": 681
+      },
+      "total_frames": 681,
+      "frames_two_accepted_boundaries": 681,
+      "frames_with_lane": 681,
+      "frames_without_reliable_lane": 0,
+      "fallback_frames": 85,
+      "fallback_boundary_activations": 85,
+      "fallback_attempt_frames": 85,
+      "mean_processing_seconds": 0.1481519549252211,
+      "effective_processing_fps": 6.749826558176331,
+      "wall_seconds": 105.69261670019478,
+      "end_to_end_fps": 6.443212603314655,
+      "adjacent_center_change": {
+        "pairs": 680,
+        "definition": "Bottom lane-center x, adjacent frames with accepted geometry only; no bridging failures",
+        "mean_absolute_px": 1.7802874622887135,
+        "p95_absolute_px": 5.892182621464354,
+        "max_absolute_px": 16.936967122032513,
+        "over_30_px": 0,
+        "large_jump_threshold_px": 22.494136043784206,
+        "large_jumps": 0,
+        "p95_reference_px": 7.858291525394066,
+        "max_reference_px": 22.588509853054834
+      },
+      "largest_jump": {
+        "before_frame": 365,
+        "after_frame": 366,
+        "delta_px": 16.936967122032513
+      },
+      "longest_failure_frames": 0,
+      "warning_frame_counts": {
+        "right: bottom EXTRAPOLATED; radius and offset use this estimate": 454,
+        "WARNING: boundary radii differ by >= 3x (informational only)": 398
+      },
+      "assumptions": "No temporal state in detection. Metric scales are assumptions. Acceptance is not accuracy. Output is silent; source audio is not copied.",
+      "resolution_configuration": {
+        "image_size": [
+          960,
+          540
+        ],
+        "reference_size": [
+          1280,
+          720
+        ],
+        "camera_scale": [
+          0.75,
+          0.75
+        ],
+        "pixel_scale": [
+          0.7498045347928068,
+          0.7496522948539638
+        ],
+        "source_points": [
+          [
+            404.8944487881157,
+            367.32962447844227
+          ],
+          [
+            560.8537920250195,
+            367.32962447844227
+          ],
+          [
+            781.2963252541048,
+            509.76356050069535
+          ],
+          [
+            197.1985926505082,
+            509.76356050069535
+          ]
+        ],
+        "destination_points": [
+          [
+            239.93745113369818,
+            0.0
+          ],
+          [
+            719.8123534010946,
+            0.0
+          ],
+          [
+            719.8123534010946,
+            539.0
+          ],
+          [
+            239.93745113369818,
+            539.0
+          ]
+        ],
+        "roi": [
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.38,
+            0.58
+          ],
+          [
+            0.68,
+            0.58
+          ],
+          [
+            1.0,
+            1.0
+          ]
+        ],
+        "search": {
+          "nwindows": 9,
+          "margin": 60,
+          "minpix": 29,
+          "min_lane_pixels": 169,
+          "min_supported_windows": 4,
+          "seed_parameters": {
+            "min_peak": 15,
+            "peak_distance": 45
+          }
+        },
+        "fit": {
+          "min_pixels": 169,
+          "min_unique_y": 75,
+          "min_supported_windows": 4,
+          "max_rmse": 29.992181391712272,
+          "max_slope": 2.0004061614694923,
+          "max_horizontal_span": 0.35
+        },
+        "geometry": {
+          "ym_per_pix": 0.0555813234384663,
+          "xm_per_pix": 0.007710342805005214,
+          "width_bounds_px": [
+            299.92181391712273,
+            674.8240813135261
+          ],
+          "max_width_variation_fraction": 0.25,
+          "straight_epsilon": 1e-09
+        },
+        "large_jump_threshold_px": 22.494136043784206,
+        "camera_assumption": "The three project_video clips are assumed to share camera, lens and full field of view; only resolution differs. This is an adopted project assumption, not independently verified data.",
+        "camera_identity_independently_confirmed": false,
+        "temporal_tracking": false,
+        "coordinate_policy": "Dimension-ratio camera intrinsics; endpoint-normalized selected road points/ROI. These are the tested policies, not an exact resampling equivalence claim."
+      },
+      "applied_camera_matrix": [
+        [
+          869.0810654545128,
+          0.0,
+          502.232055971649
+        ],
+        [
+          0.0,
+          865.5574555398925,
+          291.0595878052085
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "distortion_coefficients": [
+        [
+          -0.2567790821743934,
+          0.043384515888101695,
+          -0.0006874544870819351,
+          0.00012576902232175644,
+          -0.11502545693507232
+        ]
+      ],
+      "camera_assumption": "The three project_video clips are assumed to share camera, lens and full field of view; only resolution differs. This is an adopted project assumption, not independently verified data.",
+      "camera_identity_independently_confirmed": false,
+      "undistortion_applied": true,
+      "extrapolated_bottom_frames": {
+        "left": 0,
+        "right": 454
+      }
+    },
+    {
+      "input": {
+        "path": "D:\\Teodora\\Fakultet\\Master\\DOSiVuAutonomnimVozilima\\Projekat\\Zadatak\\projekat\\Digital-Image-and-Video-Processing\\lane-finding\\test_videos\\project_video03.mp4",
+        "width": 1280,
+        "height": 720,
+        "fps": 25.0,
+        "frames": 1260
+      },
+      "output": {
+        "path": "results\\video\\final_presentation\\project_video03\\project_video03_final.mp4",
+        "width": 1280,
+        "height": 720,
+        "fps": 25.0,
+        "frames": 1260,
+        "decoded_frames": 1260
+      },
+      "total_frames": 1260,
+      "frames_two_accepted_boundaries": 1243,
+      "frames_with_lane": 1243,
+      "frames_without_reliable_lane": 17,
+      "fallback_frames": 272,
+      "fallback_boundary_activations": 272,
+      "fallback_attempt_frames": 273,
+      "mean_processing_seconds": 0.21727129547849355,
+      "effective_processing_fps": 4.602540790294981,
+      "wall_seconds": 287.62077579973266,
+      "end_to_end_fps": 4.380768379810382,
+      "adjacent_center_change": {
+        "pairs": 1232,
+        "definition": "Bottom lane-center x, adjacent frames with accepted geometry only; no bridging failures",
+        "mean_absolute_px": 1.7743510506108597,
+        "p95_absolute_px": 5.751642139126558,
+        "max_absolute_px": 15.781167228077265,
+        "over_30_px": 0,
+        "large_jump_threshold_px": 30.0,
+        "large_jumps": 0,
+        "p95_reference_px": 5.751642139126558,
+        "max_reference_px": 15.781167228077265
+      },
+      "largest_jump": {
+        "before_frame": 1039,
+        "after_frame": 1040,
+        "delta_px": 15.781167228077265
+      },
+      "longest_failure_frames": 5,
+      "warning_frame_counts": {
+        "right: bottom EXTRAPOLATED; radius and offset use this estimate": 816,
+        "WARNING: boundary radii differ by >= 3x (informational only)": 428,
+        "right: UNRELIABLE - no curve or radius": 17,
+        "right: unreliable boundary; offset not computed": 17,
+        "left: bottom EXTRAPOLATED; radius and offset use this estimate": 3
+      },
+      "assumptions": "No temporal state in detection. Metric scales are assumptions. Acceptance is not accuracy. Output is silent; source audio is not copied.",
+      "resolution_configuration": {
+        "image_size": [
+          1280,
+          720
+        ],
+        "reference_size": [
+          1280,
+          720
+        ],
+        "camera_scale": [
+          1.0,
+          1.0
+        ],
+        "pixel_scale": [
+          1.0,
+          1.0
+        ],
+        "source_points": [
+          [
+            540.0,
+            490.0
+          ],
+          [
+            748.0,
+            490.0
+          ],
+          [
+            1042.0,
+            680.0
+          ],
+          [
+            263.0,
+            680.0
+          ]
+        ],
+        "destination_points": [
+          [
+            320.0,
+            0.0
+          ],
+          [
+            960.0,
+            0.0
+          ],
+          [
+            960.0,
+            719.0
+          ],
+          [
+            320.0,
+            719.0
+          ]
+        ],
+        "roi": [
+          [
+            0.0,
+            1.0
+          ],
+          [
+            0.38,
+            0.58
+          ],
+          [
+            0.68,
+            0.58
+          ],
+          [
+            1.0,
+            1.0
+          ]
+        ],
+        "search": {
+          "nwindows": 9,
+          "margin": 80,
+          "minpix": 50,
+          "min_lane_pixels": 300,
+          "min_supported_windows": 4,
+          "seed_parameters": {
+            "min_peak": 20,
+            "peak_distance": 60
+          }
+        },
+        "fit": {
+          "min_pixels": 300,
+          "min_unique_y": 100,
+          "min_supported_windows": 4,
+          "max_rmse": 40.0,
+          "max_slope": 2.0,
+          "max_horizontal_span": 0.35
+        },
+        "geometry": {
+          "ym_per_pix": 0.041666666666666664,
+          "xm_per_pix": 0.00578125,
+          "width_bounds_px": [
+            400.0,
+            900.0
+          ],
+          "max_width_variation_fraction": 0.25,
+          "straight_epsilon": 1e-09
+        },
+        "large_jump_threshold_px": 30.0,
+        "camera_assumption": "The three project_video clips are assumed to share camera, lens and full field of view; only resolution differs. This is an adopted project assumption, not independently verified data.",
+        "camera_identity_independently_confirmed": false,
+        "temporal_tracking": false,
+        "coordinate_policy": "Dimension-ratio camera intrinsics; endpoint-normalized selected road points/ROI. These are the tested policies, not an exact resampling equivalence claim."
+      },
+      "applied_camera_matrix": [
+        [
+          1158.7747539393504,
+          0.0,
+          669.642741295532
+        ],
+        [
+          0.0,
+          1154.0766073865234,
+          388.0794504069446
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "distortion_coefficients": [
+        [
+          -0.2567790821743934,
+          0.043384515888101695,
+          -0.0006874544870819351,
+          0.00012576902232175644,
+          -0.11502545693507232
+        ]
+      ],
+      "camera_assumption": "The three project_video clips are assumed to share camera, lens and full field of view; only resolution differs. This is an adopted project assumption, not independently verified data.",
+      "camera_identity_independently_confirmed": false,
+      "undistortion_applied": true,
+      "extrapolated_bottom_frames": {
+        "left": 3,
+        "right": 816
+      }
+    }
+  ]
+}

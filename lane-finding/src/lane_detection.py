@@ -250,6 +250,8 @@ def fit_lane_polynomials(result, image_shape, min_pixels=300, min_unique_y=100,
 
     Supported rows contain assigned pixels. Unsupported internal gaps are
     interpolation; rows outside the observed y range are extrapolation.
+    Temporal callers supply measured supported_bands instead of windows;
+    the same minimum support-count threshold applies to either search.
     Geometric limits are pixel-space heuristics, not proof of lane identity.
     """
     height, width = image_shape[:2]
@@ -264,11 +266,16 @@ def fit_lane_polynomials(result, image_shape, min_pixels=300, min_unique_y=100,
             reasons.append(f"Fewer than {min_pixels} pixels")
         if len(np.unique(y)) < min_unique_y:
             reasons.append(f"Fewer than {min_unique_y} distinct rows")
-        if lane["supported_windows"] < min_supported_windows:
-            reasons.append(f"Fewer than {min_supported_windows} supported windows")
+        # Temporal corridors have measured horizontal bands, not sliding windows.
+        support_kind = "bands" if "supported_bands" in lane else "windows"
+        support_count = lane.get("supported_bands", lane.get("supported_windows", 0))
+        if support_count < min_supported_windows:
+            reasons.append(f"Fewer than {min_supported_windows} supported {support_kind}")
         fit = dict(reliable=False, pixel_count=len(x), unique_rows=len(np.unique(y)),
-                   supported_windows=lane["supported_windows"], coefficients=None,
+                   supported_windows=lane.get("supported_windows"), coefficients=None,
                    reasons=reasons)
+        if support_kind == "bands":
+            fit["supported_bands"] = support_count
         if reasons:
             fits[side] = fit
             continue

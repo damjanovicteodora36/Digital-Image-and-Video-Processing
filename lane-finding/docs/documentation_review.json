@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "readme_words": 5135,
+  "displayed_images": 14,
+  "relative_links_checked": 37,
+  "all_images_in_docs": true,
+  "asset_hashes_verified": true,
+  "available_original_sources_compared": 14,
+  "protected_existing_files_unchanged": 421,
+  "template_sha256": "ab2212758d2b55df93c083a41d393f44bbc6ada7c933b97d8444abedb836aa88",
+  "table_structure_checked": true,
+  "math_delimiters_checked": true,
+  "module_function_map_checked": true,
+  "manual_checks_remaining": [
+    "GitHub rendering of mathematics",
+    "Remote publication/playback of local MP4 links",
+    "Same-camera/full-FOV assumption is not independently verified",
+    "No independent metric calibration or dense accuracy ground truth"
+  ]
+}

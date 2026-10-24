@@ -1,0 +1,78 @@
+{
+  "videos": [
+    {
+      "video": "project_video01",
+      "frames": 221,
+      "accepted": 221,
+      "rejected": 0,
+      "width": 960,
+      "height": 540,
+      "fps": 25.0,
+      "decoded_frames": 221,
+      "numeric_results_identical": true
+    },
+    {
+      "video": "project_video02",
+      "frames": 681,
+      "accepted": 681,
+      "rejected": 0,
+      "width": 960,
+      "height": 540,
+      "fps": 25.0,
+      "decoded_frames": 681,
+      "numeric_results_identical": true
+    },
+    {
+      "video": "project_video03",
+      "frames": 1260,
+      "accepted": 1243,
+      "rejected": 17,
+      "width": 1280,
+      "height": 720,
+      "fps": 25.0,
+      "decoded_frames": 1260,
+      "numeric_results_identical": true
+    }
+  ],
+  "main_tests": 53,
+  "experiment_tests": 36,
+  "unchanged_previous_artifacts": true,
+  "unreliable_frames_without_road_overlay": 17,
+  "samples": [
+    {
+      "video": "project_video01",
+      "frame": 87,
+      "path": "results\\video\\final_presentation\\docs_candidates\\project_video01_000087_960_nearly_straight.png",
+      "source": "Decoded final presentation MP4"
+    },
+    {
+      "video": "project_video02",
+      "frame": 103,
+      "path": "results\\video\\final_presentation\\docs_candidates\\project_video02_000103_960_centered.png",
+      "source": "Decoded final presentation MP4"
+    },
+    {
+      "video": "project_video03",
+      "frame": 547,
+      "path": "results\\video\\final_presentation\\docs_candidates\\project_video03_000547_1280_extrapolation.png",
+      "source": "Decoded final presentation MP4"
+    },
+    {
+      "video": "project_video03",
+      "frame": 997,
+      "path": "results\\video\\final_presentation\\docs_candidates\\project_video03_000997_1280_curvature.png",
+      "source": "Decoded final presentation MP4"
+    },
+    {
+      "video": "project_video03",
+      "frame": 500,
+      "path": "results\\video\\final_presentation\\docs_candidates\\project_video03_000500_1280_unavailable.png",
+      "source": "Decoded final presentation MP4"
+    }
+  ],
+  "display_thresholds": {
+    "nearly_straight_m": 10000,
+    "centered_absolute_offset_m": 0.05
+  },
+  "limitations": "Camera identity is an adopted project assumption; metric estimates are approximate. Acceptance is not accuracy. No temporal tracking or multi-candidate integration."
+}
